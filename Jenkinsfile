@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh 'mvn test'
                 junit '**/target/surefire-reports/*.xml'
-                recordCoverage(tools: [[]]) 
+                recordCoverage(tools: [[parser: 'JACOCO']], id: 'jacoco', name: 'JaCoCo Coverage', sourceCodeRetention: 'EVERY_BUILD')
             }
         }
         stage('Deploy') {
