@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'mvn package'
-                archiveArtifacts artifacts: '***/target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: 'target/helloworld*.jar', fingerprint: true
             }
         }
     }
