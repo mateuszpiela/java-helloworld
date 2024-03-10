@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            git branch: 'master',url: https://git.horizonnet.eu/mateusz/java-helloworld.git'
+            git branch: 'master',url: 'https://git.horizonnet.eu/mateusz/java-helloworld.git'
         }
         stage('Build') {
             steps {
