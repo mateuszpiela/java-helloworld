@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'mvn package'
+                sh 'mvn package -Dmaven.test.skip'
                 archiveArtifacts artifacts: 'target/helloworld*.jar', fingerprint: true
             }
         }
