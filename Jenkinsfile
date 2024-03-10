@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            git branch: 'master',url: 'https://git.horizonnet.eu/mateusz/java-helloworld.git'
+            steps {
+                git branch: 'master',url: 'https://git.horizonnet.eu/mateusz/java-helloworld.git'
+            }
         }
         stage('Build') {
             steps {
@@ -14,7 +16,7 @@ pipeline {
             steps {
                 sh 'mvn test'
                 junit '**/target/surefire-reports/*.xml'
-                jacoco 
+                recordCoverage(tools: [[]]) 
             }
         }
         stage('Deploy') {
